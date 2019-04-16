@@ -16,10 +16,3 @@ Route::get('/', function () {
 });
 
 Route::resource('projects', 'ProjectsController');
-// Route::get('/projects', 'ProjectsController@index');
-// Route::post('/projects', 'ProjectsController@store');
-// Route::get('/projects/{project}', 'ProjectController@show');
-// Route::get('/projects/create', 'ProjectsController@create');
-// Route::get('/projects/{project}/edit', 'ProjectController@edit');
-// Route::patch('/projects/{project}', 'ProjectController@update');
-// Route::delete('/projects/{project}', 'ProjectController@destroy');
