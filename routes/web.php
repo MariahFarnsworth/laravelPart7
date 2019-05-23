@@ -1,5 +1,8 @@
 <?php
 
+app()->singleton('App\Services\Twitter', function () {
+    return new App\Services\Twitter('asdfgsdfgasdfgh');
+});
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +15,7 @@
 */
 
 Route::get('/', function () {
+    dd(app('App\Example'));
     return view('welcome');
 });
 
