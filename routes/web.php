@@ -1,6 +1,7 @@
 <?php
 
 use App\Repositories\UserRepository;
+use App\Services\Twitter;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +13,9 @@ use App\Repositories\UserRepository;
 |
 */
 
-Route::get('/', function (UserRepository $users) {
-   dd($users);
+
+Route::get('/', function (Twitter $twitter) {
+    dd($twitter);
     return view('welcome');
 });
 
