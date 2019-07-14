@@ -9,9 +9,12 @@ use App\Services\Twitter;
 
 class ProjectsController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function index(){
 
-        $projects = Project::all();
+        $projects = Project::where('owner_id', auth()->id())->get();
 
         return view('projects.index', compact('projects'));
     }
@@ -21,9 +24,7 @@ class ProjectsController extends Controller
         return view('projects.create');
     }
 
-    public function show(Project $project, Twitter $twitter){
-        
-        dd($twitter);
+    public function show(Project $project){
         return view('projects.show', compact('project'));
 
     }
@@ -37,6 +38,8 @@ class ProjectsController extends Controller
             'title' => ['required', 'min:3', 'max:255'],
             'description' => ['required', 'min:3','max:255']
         ]);
+
+        $attributes['owner_id'] = auth()->id();
         Project::create($attributes);
 
         return redirect('/projects');
