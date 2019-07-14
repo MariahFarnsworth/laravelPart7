@@ -1,8 +1,6 @@
 <?php
 
-app()->singleton('App\Services\Twitter', function () {
-    return new App\Services\Twitter('asdfgsdfgasdfgh');
-});
+use App\Repositories\UserRepository;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +12,8 @@ app()->singleton('App\Services\Twitter', function () {
 |
 */
 
-Route::get('/', function () {
-    dd(app('App\Example'));
+Route::get('/', function (UserRepository $users) {
+   dd($users);
     return view('welcome');
 });
 
