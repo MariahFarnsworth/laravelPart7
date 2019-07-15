@@ -18,6 +18,7 @@ Route::get('/', function (Twitter $twitter) {
     return view('welcome');
 });
 
+// Route::resource('projects', 'ProjectsController')->middleware('can:update,project');
 Route::resource('projects', 'ProjectsController');
 
 Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
